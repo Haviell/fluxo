@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fluxo de Caixa da Empresa</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
 </head>
 <body>
   <header>
@@ -98,78 +99,7 @@
               <td><input class="money" value="350,00"/></td>
               <td><button class="danger mini" onclick="removerLinha(this)">×</button></td>
             </tr>
-            <tr>
-              <td><input value="Folha de Pagamento"/></td>
-              <td>
-                <select>
-                  <option value="operacional" selected>Operacional</option>
-                  <option value="investimento">Investimento</option>
-                  <option value="financiamento">Financiamento</option>
-                </select>
-              </td>
-              <td><input class="money" value="175,00"/></td>
-              <td><button class="danger mini" onclick="removerLinha(this)">×</button></td>
-            </tr>
-            <tr>
-              <td><input value="Serviços de Terceiros"/></td>
-              <td>
-                <select>
-                  <option value="operacional" selected>Operacional</option>
-                  <option value="investimento">Investimento</option>
-                  <option value="financiamento">Financiamento</option>
-                </select>
-              </td>
-              <td><input class="money" value="50,00"/></td>
-              <td><button class="danger mini" onclick="removerLinha(this)">×</button></td>
-            </tr>
-            <tr>
-              <td><input value="Impostos e Taxas"/></td>
-              <td>
-                <select>
-                  <option value="operacional" selected>Operacional</option>
-                  <option value="investimento">Investimento</option>
-                  <option value="financiamento">Financiamento</option>
-                </select>
-              </td>
-              <td><input class="money" value="125,00"/></td>
-              <td><button class="danger mini" onclick="removerLinha(this)">×</button></td>
-            </tr>
-            <tr>
-              <td><input value="Compras de Imobilizado"/></td>
-              <td>
-                <select>
-                  <option value="operacional">Operacional</option>
-                  <option value="investimento" selected>Investimento</option>
-                  <option value="financiamento">Financiamento</option>
-                </select>
-              </td>
-              <td><input class="money" value="250,00"/></td>
-              <td><button class="danger mini" onclick="removerLinha(this)">×</button></td>
-            </tr>
-            <tr>
-              <td><input value="Amortização do Principal"/></td>
-              <td>
-                <select>
-                  <option value="operacional">Operacional</option>
-                  <option value="investimento">Investimento</option>
-                  <option value="financiamento" selected>Financiamento</option>
-                </select>
-              </td>
-              <td><input class="money" value="850,00"/></td>
-              <td><button class="danger mini" onclick="removerLinha(this)">×</button></td>
-            </tr>
-            <tr>
-              <td><input value="Pagamento de Juros"/></td>
-              <td>
-                <select>
-                  <option value="operacional">Operacional</option>
-                  <option value="investimento">Investimento</option>
-                  <option value="financiamento" selected>Financiamento</option>
-                </select>
-              </td>
-              <td><input class="money" value="250,00"/></td>
-              <td><button class="danger mini" onclick="removerLinha(this)">×</button></td>
-            </tr>
+            <!-- Mais linhas podem ser adicionadas aqui -->
           </tbody>
         </table>
         <div class="btns" style="margin:10px 0 8px">
@@ -219,6 +149,6 @@
     </aside>
   </main>
 
-  <script type="module" src="script.js"></script>
+  <script type="module" src="./script.js"></script>
 </body>
 </html>
