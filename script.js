@@ -1,4 +1,4 @@
-// ====== Helpers ======
+/* ====== Helpers ====== */
 function strParaNumero(str) {
   if (!str) return 0;
   return parseFloat(str.replace(/\./g, '').replace(',', '.')) || 0;
@@ -8,7 +8,7 @@ function numeroParaMoeda(num) {
   return num.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-// ====== Adicionar e Remover Linhas ======
+/* ====== Adicionar e Remover Linhas ====== */
 function adicionarLinha(tabelaId) {
   const tabela = document.getElementById(tabelaId).querySelector('tbody');
   const tr = document.createElement('tr');
@@ -33,7 +33,7 @@ function removerLinha(btn) {
   atualizarTotais();
 }
 
-// ====== Calcular Totais e Decomposição ======
+/* ====== Calcular Totais e Decomposição ====== */
 function atualizarTotais() {
   const saldoInicial = strParaNumero(document.getElementById('saldoInicial').value);
 
@@ -84,7 +84,7 @@ function atualizarTotais() {
   document.getElementById('decFluxoFin').textContent = numeroParaMoeda(dec.financiamento.entrada - dec.financiamento.saida);
 }
 
-// ====== Exportar para Excel ======
+/* ====== Exportar para Excel ====== */
 document.getElementById('exportar').addEventListener('click', () => {
   const wb = XLSX.utils.book_new();
 
@@ -110,12 +110,21 @@ document.getElementById('exportar').addEventListener('click', () => {
   XLSX.writeFile(wb, 'fluxo_de_caixa.xls');
 });
 
-// ====== Resetar Valores de Exemplo ======
+/* ====== Resetar Valores de Exemplo ====== */
 document.getElementById('resetar').addEventListener('click', () => {
-  location.reload();
+  document.getElementById('saldoInicial').value = '270,00';
+  // Resetar entradas
+  document.querySelectorAll('#tEntradas tbody tr').forEach((tr, index) => {
+    if (index > 1) tr.remove();  // Remove todas as linhas além das duas iniciais
+  });
+  // Resetar saídas
+  document.querySelectorAll('#tSaidas tbody tr').forEach((tr, index) => {
+    if (index > 1) tr.remove();  // Remove todas as linhas além das duas iniciais
+  });
+  atualizarTotais();  // Atualiza os totais após reset
 });
 
-// ====== Atualiza Totais ao mudar valores ======
+/* ====== Atualiza Totais ao mudar valores ====== */
 document.getElementById('saldoInicial').addEventListener('input', atualizarTotais);
 document.addEventListener('input', e => {
   if (e.target.classList.contains('money')) {
@@ -123,5 +132,5 @@ document.addEventListener('input', e => {
   }
 });
 
-// ====== Inicial ======
+/* ====== Inicial ====== */
 window.addEventListener('load', atualizarTotais);
